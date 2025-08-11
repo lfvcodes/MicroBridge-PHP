@@ -4,7 +4,7 @@
 </h1>
 
 <div align="center">
-  MicroBridge-PHP is a lightweight (<1000 lines of code) PHP 7.1 tool for issuing intern-aPI requests.
+  MicroBridge-PHP is a lightweight (less than 1000 lines of code) PHP 7.1 tool for issuing intern-API requests.
 </div>
 
 ## Installation
