@@ -1,0 +1,12 @@
+{
+  "name": "lfvcodes/microbridge-php",
+  "description": "PHP's lightweight microservice communicator",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "MicroBridge\\": "src/"
+    }
+  },
+  "require": {}
+}
