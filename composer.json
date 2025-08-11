@@ -3,10 +3,25 @@
   "description": "PHP's lightweight microservice communicator",
   "type": "library",
   "license": "MIT",
+  "authors": [
+    {
+      "name": "lfvcodes",
+      "email": "velfcodes@gmail.com"
+    }
+  ],
   "autoload": {
     "psr-4": {
       "MicroBridge\\": "src/"
     }
   },
-  "require": {}
+  "require": {},
+  "keywords": [
+    "php",
+    "encryption",
+    "microservices",
+    "api",
+    "secure",
+    "library"
+  ],
+  "homepage": "https://github.com/lfvcodes/microbridge-php"
 }
