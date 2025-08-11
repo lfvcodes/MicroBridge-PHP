@@ -1,6 +1,6 @@
 <h1 align="center">
   <a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=php&perline=15" /></a>
-  MicroBridge-PHP - PHP's lightweight microservice/API communicator
+  MicroBridge-PHP <br> PHP's lightweight microservices/API communicator
 </h1>
 
 <div align="center">
