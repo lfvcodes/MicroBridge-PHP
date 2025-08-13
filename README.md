@@ -6,6 +6,12 @@
 <div align="center">
   MicroBridge-PHP is a lightweight (less than 1000 lines of code) PHP 7.1 tool for issuing intern-API requests.
 </div>
+<div align="center">
+ <a href="https://packagist.org/packages/lfvcodes/microbridge-php">
+ <img src="https://img.shields.io/packagist/v/lfvcodes/microbridge-php?style=flat-square" />
+ </a>
+</div>
+
 
 ## Installation
 
