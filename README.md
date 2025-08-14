@@ -21,19 +21,6 @@ Install by running:
 composer require lfvcodes/MicroBridge-PHP
 ```
 
-## Usage
-
-This page will just show you the basics, please [read the full documentation](doc/).
-
-```php
-<?php
-  use MicroBridge\MicroBridge;
-  $client = new MicroBridge($method = 'POST'); //Can use POST/GET/PUT/PATCH/DELETE
-  $response = $client->request($urlOrPath,$arrayPayload);
-  print_r($response);
-?>
-```
-
 ## 📦 Using Without Composer
 
 If you're not using Composer, you can manually integrate MicroBridge into your project by following these steps:
@@ -48,15 +35,27 @@ Download or clone the repository and copy the `src/` folder into your project:
 
 In your main file (`index.php` or similar), include the class file and use the namespace:
 
+
+## Usage
+
+Using methods with params:
+
 ```php
 <?php
-  require_once __DIR__ . '/src/MicroBridge.php';
-
   use MicroBridge\MicroBridge;
-
-  $bridge = new MicroBridge();
-  $response = $bridge->sendRequest('http://localhost/api', []);
+  $client = new MicroBridge($method = 'POST'); //Can use POST/GET/PUT/PATCH/DELETE
+  $response = $client->request($urlOrPath,$arrayParams);
   print_r($response);
 ?>
-
 ```
+
+Using URL Params with GET:
+```php
+<?php
+  use MicroBridge\MicroBridge;
+  $client = new MicroBridge($method = 'GET');
+  $response = $client->request('../api/index.php?id=4');
+  print_r($response);
+?>
+```
+
