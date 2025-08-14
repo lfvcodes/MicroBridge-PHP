@@ -43,7 +43,7 @@ Using methods with params:
 ```php
 <?php
   use MicroBridge\MicroBridge;
-  $client = new MicroBridge($method = 'POST'); //Can use POST/GET/PUT/PATCH/DELETE
+  $client = new MicroBridge($method = 'POST'); //Can use POST/PUT/PATCH/DELETE
   $response = $client->request($urlOrPath,$arrayParams);
   print_r($response);
 ?>
