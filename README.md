@@ -27,8 +27,8 @@ This page will just show you the basics, please [read the full documentation](do
 
 ```php
 <?php
-  use MicroBridge-PHP\LocalClient
-  $client = new LocalClient($method = 'POST'); //Can use POST/GET/PUT/PATCH/DELETE
+  use MicroBridge\MicroBridge;
+  $client = new MicroBridge($method = 'POST'); //Can use POST/GET/PUT/PATCH/DELETE
   $response = $client->request($urlOrPath,$arrayPayload);
   print_r($response);
 ?>
