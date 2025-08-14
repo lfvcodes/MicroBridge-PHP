@@ -15,7 +15,7 @@ class MicroBridge
     $this->method = strtoupper($verb);
   }
 
-  public function request(string $url, array $payload, $headers = [])
+  public function request(string $url, array $payload = [], $headers = [])
   {
 
     if (!is_array($payload)) {
@@ -26,6 +26,18 @@ class MicroBridge
     $context->save();
 
     $requestData = $payload;
+    $cleanUrl = $url;
+
+    if ($this->method === 'GET') {
+      $parsedUrl = parse_url($url);
+
+      $cleanUrl = $parsedUrl['path'] ?? '';
+
+      if (isset($parsedUrl['query'])) {
+        parse_str($parsedUrl['query'], $urlParams);
+        $requestData = array_merge($urlParams, $payload);
+      }
+    }
 
     // Configurar variables globales según el método
     switch ($this->method) {
@@ -75,7 +87,7 @@ class MicroBridge
 
     try {
       ob_start();
-      include $url;
+      include $cleanUrl;
       $response = ob_get_clean();
     } catch (\Throwable $e) {
       ob_end_clean();
