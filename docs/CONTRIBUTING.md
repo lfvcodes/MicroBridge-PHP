@@ -2,7 +2,7 @@
 
 Thank you for considering contributing to MicroBridge-PHP! This document provides guidelines for contributing to the project.
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -29,7 +29,7 @@ Thank you for considering contributing to MicroBridge-PHP! This document provide
    composer test
    ```
 
-## 🧪 Testing
+## Testing
 
 ### Running Tests
 
@@ -63,7 +63,7 @@ public function testMethodDoesExpectedBehavior()
 }
 ```
 
-## 📝 Code Style
+## Code Style
 
 This project follows PSR-12 coding standards.
 
@@ -85,7 +85,7 @@ composer cs-fix
 - Keep methods focused and single-purpose
 - Use meaningful variable and method names
 
-## 🐛 Bug Reports
+## Bug Reports
 
 When filing bug reports, please include:
 
@@ -95,7 +95,7 @@ When filing bug reports, please include:
 4. **PHP version** and environment details
 5. **Code examples** demonstrating the issue
 
-## ✨ Feature Requests
+## Feature Requests
 
 For new features:
 
@@ -104,7 +104,7 @@ For new features:
 3. **Provide examples** of how the feature would be used
 4. **Consider backward compatibility** implications
 
-## 🔄 Pull Request Process
+## Pull Request Process
 
 1. **Create a feature branch** from `main`:
    ```bash
@@ -138,7 +138,7 @@ For new features:
 - **Include tests** for new functionality
 - **Update documentation** as needed
 
-## 📋 Code Review Process
+## Code Review Process
 
 All submissions require review. We look for:
 
@@ -148,7 +148,7 @@ All submissions require review. We look for:
 - **Backward compatibility** considerations
 - **Performance** implications
 
-## 🏷️ Versioning
+## Versioning
 
 This project uses [Semantic Versioning](https://semver.org/):
 
@@ -156,18 +156,18 @@ This project uses [Semantic Versioning](https://semver.org/):
 - **MINOR** version for backward-compatible functionality additions
 - **PATCH** version for backward-compatible bug fixes
 
-## 📄 License
+## License
 
 By contributing, you agree that your contributions will be licensed under the MIT License.
 
-## 🤝 Code of Conduct
+## Code of Conduct
 
 - Be respectful and inclusive
 - Focus on constructive feedback
 - Help others learn and grow
 - Maintain a positive environment
 
-## 💬 Getting Help
+## Getting Help
 
 If you need help:
 
@@ -175,4 +175,4 @@ If you need help:
 2. Look through [existing issues](https://github.com/lfvcodes/microbridge-php/issues)
 3. Create a new issue with your question
 
-Thank you for contributing to MicroBridge-PHP! 🎉
+Thank you for contributing to MicroBridge-PHP!
