@@ -7,10 +7,10 @@ use MicroBridge\MockPhpStream;
 
 /**
  * MicroBridge - Lightweight PHP microservices/API communicator
- * 
+ *
  * This class provides a simple interface for making internal API requests
  * within a PHP application, simulating HTTP requests without network overhead.
- * 
+ *
  * @package MicroBridge
  * @author lfvcodes
  * @version 1.0.0
@@ -31,29 +31,30 @@ class MicroBridge
 
     /**
      * Constructor
-     * 
+     *
      * @param string $verb HTTP method (GET, POST, PUT, PATCH, DELETE)
      * @throws \InvalidArgumentException If unsupported HTTP method is provided
      */
     public function __construct($verb = 'POST')
     {
         $method = strtoupper($verb);
-        
+
         if (!in_array($method, self::SUPPORTED_METHODS, true)) {
             throw new \InvalidArgumentException(
-                sprintf('Unsupported HTTP method: %s. Supported methods: %s', 
-                    $verb, 
+                sprintf(
+                    'Unsupported HTTP method: %s. Supported methods: %s',
+                    $verb,
                     implode(', ', self::SUPPORTED_METHODS)
                 )
             );
         }
-        
+
         $this->method = $method;
     }
 
     /**
      * Execute an internal API request
-     * 
+     *
      * @param string $url Target URL or file path
      * @param array $payload Request data
      * @param array $headers Additional headers
@@ -83,7 +84,7 @@ class MicroBridge
 
     /**
      * Execute the actual request
-     * 
+     *
      * @param string $url Target URL
      * @param array $payload Request data
      * @param array $headers Request headers
@@ -97,7 +98,7 @@ class MicroBridge
 
         if ($this->method === 'GET') {
             $parsedUrl = parse_url($url);
-            
+
             if ($parsedUrl === false) {
                 return ['error' => true, 'message' => 'Invalid URL format'];
             }
@@ -112,20 +113,20 @@ class MicroBridge
 
         $this->setupGlobalVariables($requestData);
         $this->setupServerEnvironment($headers);
-        
+
         if (in_array($this->method, ['POST', 'PUT', 'PATCH', 'DELETE'], true)) {
             $this->setupPhpInputStream($requestData);
         }
 
         $response = $this->captureResponse($cleanUrl);
         $this->cleanup($context);
-        
+
         return $this->parseResponse($response);
     }
 
     /**
      * Setup global variables based on HTTP method
-     * 
+     *
      * @param array $requestData Request data
      */
     private function setupGlobalVariables(array $requestData): void
@@ -148,7 +149,7 @@ class MicroBridge
 
     /**
      * Setup server environment variables
-     * 
+     *
      * @param array $headers Custom headers
      */
     private function setupServerEnvironment(array $headers): void
@@ -171,7 +172,7 @@ class MicroBridge
 
     /**
      * Setup PHP input stream for request body methods
-     * 
+     *
      * @param array $requestData Request data
      */
     private function setupPhpInputStream(array $requestData): void
@@ -188,7 +189,7 @@ class MicroBridge
 
     /**
      * Capture response from included file
-     * 
+     *
      * @param string $cleanUrl File path to include
      * @return string Response content
      * @throws \Exception If file cannot be included
@@ -198,7 +199,7 @@ class MicroBridge
         if (!file_exists($cleanUrl)) {
             throw new \Exception("Target file does not exist: {$cleanUrl}");
         }
-        
+
         if (!is_readable($cleanUrl)) {
             throw new \Exception("Target file is not readable: {$cleanUrl}");
         }
@@ -210,7 +211,7 @@ class MicroBridge
 
     /**
      * Cleanup resources and restore context
-     * 
+     *
      * @param RequestContext $context Request context to restore
      */
     private function cleanup(RequestContext $context): void
@@ -227,7 +228,7 @@ class MicroBridge
 
     /**
      * Parse and validate response
-     * 
+     *
      * @param string $response Raw response content
      * @return array Parsed response or error information
      */
@@ -240,12 +241,12 @@ class MicroBridge
         $decoded = json_decode($response, true);
         if (json_last_error() !== JSON_ERROR_NONE) {
             return [
-                'error' => true, 
+                'error' => true,
                 'message' => 'Invalid JSON response: ' . json_last_error_msg(),
                 'raw_response' => $response
             ];
         }
-        
+
         return $decoded;
     }
 }
