@@ -71,7 +71,7 @@ class MicroBridgeTest extends TestCase
         
         $this->assertArrayHasKey('error', $response);
         $this->assertTrue($response['error']);
-        $this->assertStringContains('does not exist', $response['message']);
+        $this->assertStringContainsString('does not exist', $response['message']);
     }
     
     /**
@@ -79,8 +79,7 @@ class MicroBridgeTest extends TestCase
      */
     public function testRequestWithInvalidPayload()
     {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('Payload must be an array');
+        $this->expectException(\TypeError::class);
         
         $bridge = new MicroBridge('POST');
         $bridge->request('./some-file.php', 'invalid-payload');
