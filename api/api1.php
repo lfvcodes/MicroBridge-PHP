@@ -13,21 +13,6 @@ require_once '../vendor/autoload.php';
 
 use MicroBridge\MicroBridge;
 
-// Set JSON response header
-header('Content-Type: application/json');
-
-// Enable CORS for local testing
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, PATCH, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type');
-
-// Handle preflight OPTIONS requests
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    http_response_code(200);
-    echo json_encode(['message' => 'Preflight OK']);
-    exit;
-}
-
 // Get request method and data
 $method = $_SERVER['REQUEST_METHOD'];
 $input = json_decode(file_get_contents('php://input'), true) ?? [];
@@ -42,7 +27,7 @@ switch ($method) {
                 $bridge = new MicroBridge('GET');
                 $payload = ['id' => $query['id']];
 
-                $response = $bridge->request('./api2.php', $payload);
+                $response = $bridge->request('api/api2.php', $payload);
                 
                 // Add metadata to response
                 $response['api1_metadata'] = [
@@ -54,7 +39,6 @@ switch ($method) {
                 echo json_encode($response);
                 
             } catch (\Exception $e) {
-                http_response_code(500);
                 echo json_encode([
                     'status' => 500,
                     'error' => 'Internal server error',
@@ -63,7 +47,6 @@ switch ($method) {
             }
 
         } else {
-            http_response_code(400);
             echo json_encode([
                 'status' => 400,
                 'error' => 'Bad Request',
@@ -73,7 +56,6 @@ switch ($method) {
         break;
 
     case 'POST':
-        http_response_code(201);
         echo json_encode([
             'status' => 201,
             'method' => 'POST',
@@ -83,7 +65,6 @@ switch ($method) {
         break;
 
     case 'PUT':
-        http_response_code(200);
         echo json_encode([
             'status' => 200,
             'method' => 'PUT',
@@ -93,7 +74,6 @@ switch ($method) {
         break;
 
     case 'PATCH':
-        http_response_code(200);
         echo json_encode([
             'status' => 200,
             'method' => 'PATCH',
@@ -103,7 +83,6 @@ switch ($method) {
         break;
 
     case 'DELETE':
-        http_response_code(200);
         echo json_encode([
             'status' => 200,
             'method' => 'DELETE',
@@ -113,7 +92,6 @@ switch ($method) {
         break;
 
     default:
-        http_response_code(405);
         echo json_encode([
             'status' => 405,
             'error' => 'Method Not Allowed',

@@ -9,21 +9,6 @@
 # @link https://github.com/lfvcodes/MicroBridge-PHP.git
 */
 
-// Set JSON response header
-header('Content-Type: application/json');
-
-// Enable CORS for local testing
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, PATCH, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type');
-
-// Handle preflight OPTIONS requests
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    http_response_code(200);
-    echo json_encode(['message' => 'Preflight OK']);
-    exit;
-}
-
 // Get request method and data
 $method = $_SERVER['REQUEST_METHOD'];
 $input = json_decode(file_get_contents('php://input'), true) ?? [];
@@ -53,7 +38,6 @@ switch ($method) {
                 ]
             ]);
         } else {
-            http_response_code(400);
             echo json_encode([
                 'status' => 400,
                 'error' => 'Bad Request',
@@ -63,7 +47,6 @@ switch ($method) {
         break;
 
     default:
-        http_response_code(405);
         echo json_encode([
             'status' => 405,
             'error' => 'Method Not Allowed',

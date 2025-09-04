@@ -13,6 +13,12 @@ namespace MicroBridge;
 class MockPhpStream
 {
     /**
+     * Stream context (required by PHP stream wrapper interface)
+     * @var resource|null
+     */
+    public $context;
+
+    /**
      * Current position in the stream
      * @var int
      */
