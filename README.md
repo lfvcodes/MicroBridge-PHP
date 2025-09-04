@@ -147,6 +147,55 @@ try {
 ?>
 ```
 
+## Running Examples
+
+The `examples/` directory contains working demonstrations of MicroBridge functionality. These examples are fully runnable and show real-world usage patterns.
+
+### Available Examples
+
+- **`basic-usage.php`** - Demonstrates fundamental GET, POST, PUT requests
+- **`chained-requests.php`** - Shows how to chain multiple API calls together
+- **`error-handling.php`** - Illustrates comprehensive error handling scenarios
+
+### Running Examples via Command Line
+
+Navigate to the project root directory and run any example:
+
+```bash
+# Run basic usage examples
+php examples/basic-usage.php
+
+# Run chained requests demonstration
+php examples/chained-requests.php
+
+# Run error handling examples
+php examples/error-handling.php
+```
+
+### Running Examples via Web Server
+
+If you have a local web server (Apache, Nginx, or PHP's built-in server) configured to serve PHP files:
+
+```bash
+# Start PHP's built-in development server
+php -S localhost:8000
+
+# Then visit in your browser:
+# http://localhost:8000/examples/basic-usage.php
+# http://localhost:8000/examples/chained-requests.php
+# http://localhost:8000/examples/error-handling.php
+```
+
+### Example Output
+
+When running `basic-usage.php`, you should see clean HTML output demonstrating:
+- Successful GET requests with chained API calls
+- POST request handling with JSON payloads
+- PUT requests with custom headers
+- Proper error handling for invalid methods
+
+All examples include the working API endpoints (`api/api1.php` and `api/api2.php`) that demonstrate real internal API communication without network overhead.
+
 ## API Methods
 
 | Method | Description | Use Case |
