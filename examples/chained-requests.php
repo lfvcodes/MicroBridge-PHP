@@ -61,10 +61,10 @@ function demonstrateChainedRequests()
         
         echo "<pre>" . json_encode($notificationResponse, JSON_PRETTY_PRINT) . "</pre>\n";
         
-        echo "<p style='color: green;'><strong>✅ Workflow completed successfully!</strong></p>\n";
+        echo "<p style='color: green;'><strong>Workflow completed successfully!</strong></p>\n";
         
     } catch (Exception $e) {
-        echo "<p style='color: red;'><strong>❌ Workflow failed:</strong> " . htmlspecialchars($e->getMessage()) . "</p>\n";
+        echo "<p style='color: red;'><strong>Workflow failed:</strong> " . htmlspecialchars($e->getMessage()) . "</p>\n";
     }
 }
 
