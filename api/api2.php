@@ -1,10 +1,11 @@
 <?php
+
 /*
 # API Endpoint 2 - Secondary API handler
-# 
+#
 # This endpoint demonstrates a simple data retrieval service that can be
 # called by other APIs through MicroBridge.
-# 
+#
 # @author lfvcodes
 # @link https://github.com/lfvcodes/MicroBridge-PHP.git
 */

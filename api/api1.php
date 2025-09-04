@@ -1,10 +1,11 @@
 <?php
+
 /*
 # API Endpoint 1 - Main API handler
-# 
+#
 # This endpoint demonstrates request handling and chaining to other APIs.
 # It supports multiple HTTP methods and includes proper error handling.
-# 
+#
 # @author lfvcodes
 # @link https://github.com/lfvcodes/MicroBridge-PHP.git
 */
@@ -28,16 +29,15 @@ switch ($method) {
                 $payload = ['id' => $query['id']];
 
                 $response = $bridge->request('api/api2.php', $payload);
-                
+
                 // Add metadata to response
                 $response['api1_metadata'] = [
                     'processed_at' => date('Y-m-d H:i:s'),
                     'request_id' => uniqid('req_', true),
                     'chained_from' => 'api1'
                 ];
-                
+
                 echo json_encode($response);
-                
             } catch (\Exception $e) {
                 echo json_encode([
                     'status' => 500,
@@ -45,7 +45,6 @@ switch ($method) {
                     'message' => $e->getMessage()
                 ]);
             }
-
         } else {
             echo json_encode([
                 'status' => 400,
