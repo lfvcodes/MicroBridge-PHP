@@ -19,7 +19,7 @@
   </a>
 </div>
 
-## 🚀 Features
+## Features
 
 - **Lightweight**: Less than 500 lines of code
 - **Zero Dependencies**: No external dependencies required
@@ -29,7 +29,7 @@
 - **Error Handling**: Comprehensive error handling and validation
 - **Stream Simulation**: Mock php://input stream for request body handling
 
-## 📋 Requirements
+## Requirements
 
 - PHP 7.1 or higher
 - Composer (recommended) or manual installation
@@ -48,7 +48,7 @@ composer require lfvcodes/microbridge-php
 
 If you're not using Composer, you can manually integrate MicroBridge into your project by following these steps:
 
-#### 1. 📁 Copy the Files
+#### 1. Copy the Files
 
 Download or clone the repository and copy the `src/` folder into your project:
 
@@ -61,7 +61,7 @@ your-project/
 └── your-code.php
 ```
 
-#### 2. 📄 Manually Include the Classes
+#### 2. Manually Include the Classes
 
 In your main file (`index.php` or similar), include the class file and use the namespace:
 
@@ -76,7 +76,7 @@ use MicroBridge\MicroBridge;
 // Your code here...
 ?>
 ```
-## 📖 Usage
+## Usage
 
 ### Basic POST Request
 
@@ -147,7 +147,7 @@ try {
 ?>
 ```
 
-## 🔧 API Methods
+## API Methods
 
 | Method | Description | Use Case |
 |--------|-------------|----------|
@@ -157,7 +157,7 @@ try {
 | `PATCH` | Partial update | Updating specific fields |
 | `DELETE` | Remove resource | Deleting records |
 
-## 🛠️ Development
+## Development
 
 ### Running Tests
 
@@ -175,7 +175,7 @@ composer cs-check
 composer cs-fix
 ```
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/amazing-feature`)
@@ -183,11 +183,11 @@ composer cs-fix
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Built for modern PHP microservice architectures
 - Inspired by the need for lightweight internal API communication
